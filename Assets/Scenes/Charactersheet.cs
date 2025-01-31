@@ -32,7 +32,29 @@ public class Charactersheet : MonoBehaviour
             {
                 hitroll = diceroll + DEX + proficiencybonus;
             }
-            
+        {
+        else 
+        {
+            hitmodifier = STR + proficiencybonus;
+        }
+
+        }
+        // Print charcater details and hit modifier
+        Debug.Log(charactername + "'s hit modifier is " + (hitmodifier >= 0 ? "+" : "") + hitmodifier);
+
+        int enemyAC = diceroll + hitmodifier;
+
+        Debug.Log("Enemy AC is + enemyAC");
+        Debug.Log(charactername + "rolled a " + diceroll);
+
+        if (hitroll >= enemyAC) 
+        {
+            Debug.Log("Enemy is hit!");
+        }
+        else 
+        {
+            Debug.Log("Enemy is missed!");
+        }
         }
         Debug.Log(hitroll);
     }
