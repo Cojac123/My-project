@@ -11,6 +11,7 @@ public class Charactersheet : MonoBehaviour
     [SerializeField][Range(-5,5)] int DEX = 0;
     [SerializeField] bool finesseweapon;
     [SerializeField] int hitmodifier;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,24 +22,24 @@ public class Charactersheet : MonoBehaviour
         Debug.Log(charactername);
         Debug.Log(diceroll);
         Debug.Log(proficiencybonus);
-        if (finesseweapon) 
-        { 
-          if (STR > DEX) 
+
+        if (finesseweapon)
+        {
+            if (STR > DEX)
             {
                 hitroll = diceroll + STR + proficiencybonus;
-            
+
             }
-          else
+            else
             {
                 hitroll = diceroll + DEX + proficiencybonus;
             }
-        {
-        else 
+        }
+        else
         {
             hitmodifier = STR + proficiencybonus;
         }
 
-        }
         // Print charcater details and hit modifier
         Debug.Log(charactername + "'s hit modifier is " + (hitmodifier >= 0 ? "+" : "") + hitmodifier);
 
@@ -53,9 +54,9 @@ public class Charactersheet : MonoBehaviour
         }
         else 
         {
-            Debug.Log("Enemy is missed!");
+            Debug.Log("Enemy is !");
         }
-        }
+        
         Debug.Log(hitroll);
     }
 
